@@ -1,0 +1,19 @@
+.nav-mode-switch {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+    .mat-button {
+        font-weight: 600;
+        padding-right: 0;
+    }
+}
+
+.nav-title {
+    padding: 22px 80px;
+}
+
+h1.mat-headline {
+    margin: 0;
+    font-weight: 800;
+    font-family: 'Nunito Sans', sans-serif;
+}

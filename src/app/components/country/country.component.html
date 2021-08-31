@@ -1,0 +1,20 @@
+<mat-card class='country-card'>
+    <img class='country-image' [src] ='country.flag' alt='{{ country.name }}' />
+    <div class="country-info">
+        <h2 class='country-name mat-title'>{{ country.name }}</h2>
+        <dl class='country-brief'>
+            <div>
+                <dt>Population:</dt>
+                <dd>{{ country.population }}</dd>
+            </div>
+            <div>
+                <dt>Region:</dt>
+                <dd>{{ country.region }}</dd>
+            </div>
+            <div>
+                <dt>Capital:</dt>
+                <dd>{{ country.capital }}</dd>
+            </div>
+        </dl>
+    </div>
+</mat-card>

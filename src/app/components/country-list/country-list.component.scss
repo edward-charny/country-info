@@ -1,0 +1,27 @@
+@import '../../../scss/variables';
+
+.country {
+  padding: 37px !important;
+}
+
+.country-filter-container {
+  justify-content: flex-end;
+  display: flex;
+  padding-right: 37px;
+}
+
+.country-list-container {
+  background-color: $light-background;
+  box-shadow: inset 0 11px 15px -3px rgb(0 0 0 / 12%);
+  padding: 43px !important;
+}
+
+.country-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.country-search-container {
+  padding-left: 37px;
+}

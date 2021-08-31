@@ -1,0 +1,7 @@
+<mat-form-field class="country-filter" appearance="outline">
+  <mat-select disableOptionCentering='true' placeholder='Filter by Region'>
+    <mat-option *ngFor="let region of regions" [value]="region">
+      {{region}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

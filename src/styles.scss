@@ -1,1 +1,32 @@
+@import 'scss/theme-definition';
+@import 'scss/theme-overwrites';
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($country-info-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  [class*=mat]:not(mat-icon) {
+    font-family: $font-family !important;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  @media (min-width: 75em) {
+    width: auto;
+  }
+}
+
+.row {
+  margin:0
+}

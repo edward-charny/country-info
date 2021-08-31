@@ -1,0 +1,11 @@
+<div class="country-list-container">
+    <form class="row">
+        <country-search class='country-search-container col-xs-12 col-sm-4'></country-search>
+        <country-filter class='country-filter-container col-xs-12 col-sm-8'></country-filter>
+    </form>
+    <ul class="country-list row">
+        <li class="country col-xs-12 col-sm-3" *ngFor='let country of countries'>
+            <country [country]=country></country>
+        </li>
+    </ul>
+</div>

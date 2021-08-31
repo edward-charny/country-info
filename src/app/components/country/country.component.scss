@@ -1,0 +1,35 @@
+.country-card {
+    font-size: 16px;
+    padding: 0;
+}
+
+.country-image {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 160px;
+    width: 100%;
+}
+
+.country-info {
+    padding: 15px 20px 20px;
+}
+
+.country-name {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.country-brief {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 24px;
+    dt {
+        display: inline-block;
+        font-weight: 600;
+    }
+    dd {
+        display: inline-block;
+        font-weight: 300;
+        margin-left: 5px;
+    }
+}

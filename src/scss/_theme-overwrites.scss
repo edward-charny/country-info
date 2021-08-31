@@ -1,0 +1,57 @@
+@import 'variables';
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 7px 15px 1px rgb(0 0 0 / 12%);
+}
+
+.mat-form-field {
+    color: $light-input;
+    .mat-form-field-outline {
+        background-color: $light-elements;
+    }
+}
+
+.mat-form-field-appearance-outline {
+    .mat-form-field-outline-start,
+    .mat-form-field-outline-end {
+        border: none;
+    }
+}
+
+.mat-form-field-outline {
+    border-radius: 5px;
+    box-shadow: 0 7px 15px 1px rgb(0 0 0 / 12%);
+}
+
+.mat-form-field-prefix {
+    padding-left: 20px;
+    padding-right: 20px;
+    top: 0.35em;
+}
+
+.mat-form-field-type-mat-input {
+    .mat-form-field-infix {
+        padding: 1em 0 1.5em 0;
+        width: 100%;
+    }
+}
+
+.mat-form-field-type-mat-select {
+    .mat-form-field-flex {
+        padding-top: 0;
+    }
+    .mat-form-field-infix {
+        padding: 0.5em 0 1.25em 0;
+    }
+    .mat-select-arrow-wrapper {
+        transform: none;
+    }
+}
+
+.mat-input-element::placeholder {
+    color: $light-input;
+}
+
+.mat-select-panel {
+    margin-top: 35px;
+}
