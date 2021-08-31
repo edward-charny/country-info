@@ -16,21 +16,25 @@ export class CountryService {
   regions$: Observable<string[]>;
   private _regions: BehaviorSubject<string[]>;
   filteredOptions$: Observable<Country[]>;
+  private _filteredOptions: BehaviorSubject<Country[]>;
   private dataStore: {
     countries: Country[];
+    filteredOptions: Country[];
     regions: string[];
   }
 
-  constructor(private http: HttpClient) { 
-    this.dataStore = { 
+  constructor(private http: HttpClient) {
+    this.dataStore = {
       countries: new Array<Country>(),
+      filteredOptions: new Array<Country>(),
       regions: new Array<string>()
     };
     this._countries = new BehaviorSubject(new Array<Country>());
     this.countries$ = this._countries.asObservable();
+    this._filteredOptions = new BehaviorSubject(new Array<Country>());
+    this.filteredOptions$ = this._filteredOptions.asObservable();
     this._regions = new BehaviorSubject(new Array<string>());
     this.regions$ = this._regions.asObservable();
-    this.filteredOptions$ = new Observable<Country[]>();
   }
 
   getCountryList() {
@@ -45,14 +49,21 @@ export class CountryService {
     this.getCountries(this.regionUrl + region);
   }
 
+  updateFilteredOptions(countries: Country[]) {
+    this.dataStore.filteredOptions = countries;
+    this._filteredOptions.next(Object.assign({}, this.dataStore).filteredOptions);
+  }
+
   private getCountries(url:string) {
     this.http.get(url, {responseType: 'json'}).subscribe((response: any) => {
       if(response !== undefined && response !== null) {
         let countries: Country[] = new Array<Country>();
         countries = response;
         this.dataStore.countries = countries;
+        this.dataStore.filteredOptions = countries;
         this.processRegions();
-        this._countries.next(Object.assign({}, this.dataStore).countries)
+        this._countries.next(Object.assign({}, this.dataStore).countries);
+        this._filteredOptions.next(Object.assign({}, this.dataStore).filteredOptions);
       }
     }, error => {
       console.log('error retrieving countries');

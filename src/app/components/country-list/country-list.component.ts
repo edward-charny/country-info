@@ -18,7 +18,7 @@ export class CountryListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.countrySubscription = this.countryService.countries$.subscribe(results => {
+    this.countrySubscription = this.countryService.filteredOptions$.subscribe(results => {
       if (results !== undefined && results !== null) {
         this.countries = results;
       }
