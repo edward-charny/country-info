@@ -1,11 +1,11 @@
-<mat-card class='country-card'>
+<mat-card class='country-card' (click)='handleClick()'>
     <img class='country-image' [src] ='country.flag' alt='{{ country.name }}' />
     <div class="country-info">
         <h2 class='country-name mat-title'>{{ country.name }}</h2>
         <dl class='country-brief'>
             <div>
                 <dt>Population:</dt>
-                <dd>{{ country.population }}</dd>
+                <dd>{{ country.population | number }}</dd>
             </div>
             <div>
                 <dt>Region:</dt>

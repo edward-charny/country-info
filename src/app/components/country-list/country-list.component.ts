@@ -12,13 +12,13 @@ export class CountryListComponent implements OnInit {
   countries: Country[];
   private countrySubscription;
 
-  constructor(private countryService: CountryService) { 
+  constructor(private countryService: CountryService) {
     this.countries = new Array<Country>();
     this.countrySubscription = new Subscription();
   }
 
   ngOnInit(): void {
-    this.countrySubscription = this.countryService.filteredOptions$.subscribe(results => {
+    this.countrySubscription = this.countryService.filteredCountries$.subscribe(results => {
       if (results !== undefined && results !== null) {
         this.countries = results;
       }

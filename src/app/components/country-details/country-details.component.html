@@ -1,1 +1,62 @@
-<p>country-details works!</p>
+<div class="country-details-container">
+    <button mat-raised-button class='back-button' (click)='handleBack()'>
+        <mat-icon fontSet="material-icons-outlined">arrow_back</mat-icon>
+        Back
+    </button>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 country-image-container">
+            <img class='country-details-image' [src] ='countryDetails.flag' alt='{{ countryDetails.name }}' />
+        </div>
+        <div class="col-xs-12 col-sm-6 country-details">
+            <h2 class='country-name mat-title'>{{ countryDetails.name }}</h2>
+            <dl class='country-details-data'>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div>
+                            <dt>Native Name:</dt>
+                            <dd>{{ countryDetails.nativeName }}</dd>
+                        </div>
+                        <div>
+                            <dt>Population:</dt>
+                            <dd>{{ countryDetails.population | number }}</dd>
+                        </div>
+                        <div>
+                            <dt>Region:</dt>
+                            <dd>{{ countryDetails.region }}</dd>
+                        </div>
+                        <div>
+                            <dt>Sub Region:</dt>
+                            <dd>{{ countryDetails.subregion }}</dd>
+                        </div>
+                        <div>
+                            <dt>Capital:</dt>
+                            <dd>{{ countryDetails.capital }}</dd>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div>
+                            <dt>Top Level Domain:</dt>
+                            <dd>{{ countryDetails.topLevelDomain }}</dd>
+                        </div>
+                        <div>
+                            <dt>Currencies:</dt>
+                            <dd>{{ currencies}}</dd>
+                        </div>
+                        <div>
+                            <dt>Languages:</dt>
+                            <dd>{{ languages }}</dd>
+                        </div>
+                    </div>
+                </div>
+            </dl>
+            <div class="row border-countries">
+                <div class="mat-label">Border Countries:</div>
+                <ng-container *ngIf='borderCountries.length > 0; else noBorderCountries'>
+                    <button mat-raised-button class='border-country-button' *ngFor='let borderCountry of borderCountries' (click)='handleClick(borderCountry.alpha3Code)'>{{ borderCountry.name }}</button>               </ng-container>
+                <ng-template #noBorderCountries>
+                    <span class='no-border-countries'>N/A</span>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

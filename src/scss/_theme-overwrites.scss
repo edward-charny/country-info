@@ -1,13 +1,38 @@
 @import 'variables';
 
-.mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: 0 7px 15px 1px rgb(0 0 0 / 12%);
+.mat-autocomplete-panel,
+.mat-select-panel {
+    .dark-theme & {
+        background-color: $dark-elements;
+        color: $dark-text;
+    }
+}
+
+.mat-card {
+    .dark-theme & {
+        background-color: $dark-elements;
+        color: $dark-text;
+    }
+    &:not([class*=mat-elevation-z]) {
+        box-shadow: 0 7px 15px 1px rgb(0 0 0 / 12%);
+    }
+}
+
+.mat-input-element {
+    &, &::placeholder {
+        .dark-theme & {
+            color: $dark-text;
+        }
+    }
 }
 
 .mat-form-field {
     color: $light-input;
     .mat-form-field-outline {
         background-color: $light-elements;
+        .dark-theme & {
+            background-color: $dark-elements;
+        }
     }
 }
 
@@ -41,10 +66,10 @@
         padding-top: 0;
     }
     .mat-form-field-infix {
-        padding: 0.5em 0 1.25em 0;
+        padding: 0.75em 0 1.5em 0;
     }
     .mat-select-arrow-wrapper {
-        transform: none;
+        transform: none !important;
     }
 }
 
@@ -52,6 +77,57 @@
     color: $light-input;
 }
 
+.mat-option {
+    &:hover,
+    &:focus {
+        &:not(.mat-option-disabled) {
+            .dark-theme & {
+                background: rgba(255, 255, 255, 0.04);
+            }
+        }
+    }
+}
+
+.mat-option-text {
+    .dark-theme & {
+        background-color: $dark-elements;
+        color: $dark-text;
+    }
+}
+
+.mat-select-arrow {
+    border-left: none !important;
+    border-right: none !important;
+    border: none;
+    &:before {
+        content: '\e5cf';
+        font-family: 'Material Icons Outlined' !important;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        left: -12px;
+        line-height: 1;
+        position: relative;
+        top: -12px;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
 .mat-select-panel {
     margin-top: 35px;
+}
+
+.mat-raised-button {
+    .dark-theme & {
+        background-color: $dark-elements;
+        color: $dark-text;
+    }
+}
+
+.mat-select-arrow,
+.mat-select-value {
+    .dark-theme & {
+        color: $dark-text;
+    }
 }

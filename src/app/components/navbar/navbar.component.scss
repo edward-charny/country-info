@@ -2,14 +2,27 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 80px;
+    @media (max-width: 511px) {
+        padding-right: 0;
+    }
     .mat-button {
         font-weight: 600;
         padding-right: 0;
+        @media (max-width: 511px) {
+            margin-right: 20px;
+            padding-left: 0;
+        }
     }
 }
 
 .nav-title {
     padding: 22px 80px;
+    @media (max-width: 511px) {
+        padding: 22px 0 22px 20px;
+        .mat-headline {
+            font-size: 16px
+        }
+    }
 }
 
 h1.mat-headline {

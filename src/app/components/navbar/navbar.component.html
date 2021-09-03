@@ -1,11 +1,15 @@
 <nav class="row">
-    <div class="col-xs-12 col-sm-6 nav-title">
+    <div class="col-xs-8 col-sm-6 nav-title">
         <h1 class='mat-headline'>Where in the world?</h1>
     </div>
-    <div class="col-xs-12 col-sm-6 nav-mode-switch">
-        <button mat-button>
+    <div class="col-xs-4 col-sm-6 nav-mode-switch">
+        <button mat-button *ngIf='!darkTheme' (click)='toggleTheme()'>
             <mat-icon fontSet="material-icons-outlined">dark_mode</mat-icon>
             Dark Mode
+        </button>
+        <button mat-button *ngIf='darkTheme' (click)='toggleTheme()'>
+            <mat-icon fontSet="material-icons-outlined">dark_mode</mat-icon>
+            Light Mode
         </button>
     </div>
 </nav>

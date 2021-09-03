@@ -13,14 +13,14 @@ import { CountryService } from 'src/app/services/country.service';
 export class CountrySearchComponent implements OnInit {
   searchControl;
   countries: Country[];
-  filteredOptions$: Observable<Country[]>;
   private countrySubscription;
+  filteredCountries$: Observable<Country[]>;
 
   constructor(private countryService: CountryService) {
-    this.searchControl = new FormControl();
     this.countries = new Array<Country>();
-    this.filteredOptions$ = new Observable<Country[]>();
     this.countrySubscription = new Subscription();
+    this.filteredCountries$ = new Observable<Country[]>();
+    this.searchControl = new FormControl();
   }
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class CountrySearchComponent implements OnInit {
       console.log('error retrieving countries');
     });
     this.countryService.getCountryList();
-    this.filteredOptions$ = this.searchControl.valueChanges.pipe(
+    this.filteredCountries$ = this.searchControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
@@ -42,7 +42,7 @@ export class CountrySearchComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     let results = this.countries.filter(country => country.name.toLowerCase().includes(filterValue));
-    this.countryService.updateFilteredOptions(results);
+    this.countryService.updateFilteredCountries(results, false);
     return results;
   }
 

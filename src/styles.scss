@@ -13,8 +13,12 @@ html, body {
 }
 
 body {
-  font-family: $font-family;
+  font-family: $font-family !important;
   margin: 0;
+  &.dark-theme {
+    background-color: $dark-elements;
+    color: $dark-text;
+  }
   [class*=mat]:not(mat-icon) {
     font-family: $font-family !important;
   }

@@ -1,5 +1,6 @@
 <mat-form-field class="country-filter" appearance="outline">
-  <mat-select disableOptionCentering='true' placeholder='Filter by Region'>
+  <mat-select [(ngModel)]='selectedRegion' disableOptionCentering='true' placeholder='Filter by Region' (selectionChange)='handleSelectionChange(selectedRegion)'>
+    <mat-select-trigger>Filter by Region</mat-select-trigger>
     <mat-option *ngFor="let region of regions" [value]="region">
       {{region}}
     </mat-option>
